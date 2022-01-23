@@ -22,18 +22,16 @@ interface AnchorProps extends ComponentProps {
 
 const components = {
   h1: (props: ComponentProps) => (
-    <h2 {...props} className="mt-8 mb-4 text-3xl font-medium" />
+    <h2 {...props} className="mt-6 mb-3 text-2xl font-medium" />
   ),
   h2: (props: ComponentProps) => (
-    <h3 {...props} className="mt-7 mb-3 text-2xl font-medium" />
+    <h3 {...props} className="mt-5 mb-2 text-xl font-medium" />
   ),
   h3: (props: ComponentProps) => (
-    <h4 {...props} className="mt-6 mb-2 text-xl font-medium" />
+    <h4 {...props} className="mt-4 mb-1 text-lg font-medium" />
   ),
-  h4: (props: ComponentProps) => (
-    <h5 {...props} className="mt-5 mb-1 text-lg font-medium" />
-  ),
-  h5: (props: ComponentProps) => <h6 className="mt-4 font-medium" {...props} />,
+  h4: (props: ComponentProps) => <h5 {...props} className="mt-3 font-medium" />,
+  h5: (props: ComponentProps) => <h6 {...props} className="mt-2 font-medium" />,
   a: (props: AnchorProps) => (
     <Link href={props.href}>
       <a className="underline">{props.children}</a>
