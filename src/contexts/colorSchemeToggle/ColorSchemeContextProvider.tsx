@@ -13,7 +13,7 @@ function ColorSchemeContextProvider({
 }: ColorSchemeContextProviderProps) {
   const [colorScheme, setColorScheme] = useState(initialValue);
   useEffect(() => {
-    setColorScheme(window.localStorage.theme);
+    if (window.localStorage.theme) setColorScheme(window.localStorage.theme);
   }, []);
 
   const toggleColorScheme = () => {
