@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .content {
+    @apply p-4 m-auto w-full max-w-6xl;
+  }
+}
+
 body {
   @apply bg-neutral-50 dark:bg-black;
 }
