@@ -20,7 +20,7 @@ const Nav = () => {
           </Link>
 
           <Link href="/">
-            <a className="text-[32px] justify-self-center">
+            <a aria-label="Home" className="text-[32px] justify-self-center">
               <Logo />
             </a>
           </Link>
