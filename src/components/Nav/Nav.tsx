@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from "~icons/custom/logo.jsx";
 import ReturnUpBack from "~icons/ion/return-up-back-outline.jsx";
 
-import ColorSchemeToggle from "src/components/colorSchemeToggle/colorSchemeToggle";
+import ColorSchemeToggle from "src/components/ColorSchemeToggle/ColorSchemeToggle";
 
 const Nav = () => {
   return (
