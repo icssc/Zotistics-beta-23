@@ -9,7 +9,7 @@ import { ReactNode } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Nav from "src/components/nav/nav";
+import Nav from "src/components/Nav/Nav";
 
 interface ComponentProps {
   children: ReactNode;

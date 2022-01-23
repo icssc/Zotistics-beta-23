@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeToggleContext";
+import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
 
 import Sunny from "~icons/ion/sunny-outline.jsx";
 import Moon from "~icons/ion/moon-outline.jsx";

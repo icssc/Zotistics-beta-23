@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 
-import { ColorScheme, ColorSchemeContext } from "./colorSchemeToggleContext";
+import { ColorScheme, ColorSchemeContext } from "./colorSchemeContext";
 
 interface ColorSchemeContextProviderProps {
   children: ReactNode;
