@@ -27,7 +27,8 @@ const securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: "default-src 'self'",
+    value:
+      "default-src 'self'; connect-src 'vitals.vercel-insights.com'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com",
   },
 ];
 
