@@ -6,6 +6,10 @@
   .content {
     @apply p-4 m-auto w-full max-w-6xl;
   }
+
+  .input {
+    @apply p-2 w-full text-white bg-white rounded ring-1 ring-offset-0 ring-neutral-400 outline-offset-0 dark:ring-neutral-600 dark:bg-neutral-900 focus:outline-2 focus:outline-blue-500;
+  }
 }
 
 body {
