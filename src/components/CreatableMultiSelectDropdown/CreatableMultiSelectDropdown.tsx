@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
-import AsyncSelect from "react-select/async";
+import AsyncCreatableSelect from "react-select/async-creatable";
 import fuzzysort from "fuzzysort";
 
 import { Option } from "src/types/index";
@@ -24,7 +24,7 @@ const colorsLight = {
 interface MultiSelectDropdownProps {
   id: string;
   label: string;
-  endpoint: string;
+  endpoint?: string;
   value: Option[];
   setValue: (value: Option[]) => void;
 }
@@ -69,7 +69,7 @@ const MultiSelectDropdown = ({
       >
         {label}
       </label>
-      <AsyncSelect
+      <AsyncCreatableSelect
         id={id}
         instanceId={id}
         isMulti

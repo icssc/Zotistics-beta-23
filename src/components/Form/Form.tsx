@@ -1,77 +1,57 @@
-import { useState } from "react";
-
+import { useContext } from "react";
 import MultiSelectDropdown from "src/components/MultiSelectDropdown/MultiSelectDropdown";
+import CreatableMultiSelectDropdown from "src/components/CreatableMultiSelectDropdown/CreatableMultiSelectDropdown";
 
-interface Option {
-  value: string;
-  label: string;
-}
+import { QueriesContext } from "src/contexts/queries/queries";
 
 const Form = () => {
-  const [instructorsValue, setInstructorsValue] = useState<Option>();
-  const [quartersValue, setQuartersValue] = useState<Option>();
-  const [yearsValue, setYearsValue] = useState<Option>();
-  const [departmentsValue, setDepartmentsValue] = useState<Option>();
-  const [courseCodeValue, setCourseCodeValue] = useState<string | undefined>();
-  const [classCodeValue, setClassCodeValue] = useState<string | undefined>();
+  const { queries, updateQuery, selectedQuery } = useContext(QueriesContext);
 
   return (
-    <main className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3 content">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       <MultiSelectDropdown
         id="instructors"
         label="Instructor"
         endpoint={"/api/instructors"}
-        value={instructorsValue}
-        setValue={setInstructorsValue}
+        value={queries.get(selectedQuery)?.instructors ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "instructors", value)}
       />
       <MultiSelectDropdown
         id="quarters"
         label="Quarter"
         endpoint={"/api/quarters"}
-        value={quartersValue}
-        setValue={setQuartersValue}
+        value={queries.get(selectedQuery)?.quarters ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "quarters", value)}
       />
       <MultiSelectDropdown
         id="years"
         label="Year"
         endpoint={"/api/years"}
-        value={yearsValue}
-        setValue={setYearsValue}
+        value={queries.get(selectedQuery)?.years ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "years", value)}
       />
       <MultiSelectDropdown
         id="departments"
         label="Department"
         endpoint={"/api/departments"}
-        value={departmentsValue}
-        setValue={setDepartmentsValue}
+        value={queries.get(selectedQuery)?.departments ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "departments", value)}
       />
-      <div>
-        <label htmlFor="course-code" className="block mb-2 dark:text-white">
-          Course Code
-        </label>
-        <input
-          id="course-code"
-          className="h-9 input"
-          value={courseCodeValue}
-          onChange={(event) => {
-            setCourseCodeValue(event.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label htmlFor="class-code" className="block mb-2 dark:text-white">
-          Class Code
-        </label>
-        <input
-          id="class-code"
-          className="h-9 input"
-          value={classCodeValue}
-          onChange={(event) => {
-            setClassCodeValue(event.target.value);
-          }}
-        />
-      </div>
-    </main>
+      <CreatableMultiSelectDropdown
+        id="course-code"
+        label="Course Code"
+        // endpoint={"/api/departments"}
+        value={queries.get(selectedQuery)?.courseCode ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "courseCode", value)}
+      />
+      <CreatableMultiSelectDropdown
+        id="class-code"
+        label="Class Code"
+        // endpoint={"/api/departments"}
+        value={queries.get(selectedQuery)?.classCode ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "classCode", value)}
+      />
+    </div>
   );
 };
 
