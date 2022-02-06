@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import SelectDropdown from "./SelectDropdown";
-import CreatableMultiSelectDropdown from "src/components/CreatableMultiSelectDropdown/CreatableMultiSelectDropdown";
 import AsyncSelect from "react-select/async";
 import AsyncCreatableSelect from "react-select/async-creatable";
 
