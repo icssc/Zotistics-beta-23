@@ -4,11 +4,18 @@ import CreatableMultiSelectDropdown from "src/components/CreatableMultiSelectDro
 
 import { QueriesContext } from "src/contexts/queries/queries";
 
+const style = {
+    control: base => ({
+        ...base,
+        border: 0,
+    })
+};
+
 const Form = () => {
   const { queries, updateQuery, selectedQuery } = useContext(QueriesContext);
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <MultiSelectDropdown
         id="instructors"
         label="Instructor"
