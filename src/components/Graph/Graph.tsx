@@ -76,6 +76,11 @@ interface gradeValue {
   [key: string]: number | string;
 }
 
+// bar colors if there is only one search query
+const letterGradeBarColor = 'rgba(54, 162, 235, 0.7)'
+const pnpBarColor = 'rgba(255, 206, 86, 0.7)'
+const chartColors = Array(5).fill(letterGradeBarColor).concat(Array(2).fill(pnpBarColor))
+
 const Graph = () => {
   const { queries, updateQueryState } = useContext(QueriesContext);
 
@@ -171,8 +176,8 @@ const Graph = () => {
         legendOffset: 32,
       }}
       valueFormat=">-.2%"
-      colors={{ scheme: "set2" }}
-      margin={{ bottom: 50, left: 50 }}
+      colors={queries.size === 1 ? chartColors : { scheme: "set2" }}
+      colorBy={queries.size === 1 ? "indexValue": "id"}
       padding={0.25}
       innerPadding={6}
       borderRadius={4}

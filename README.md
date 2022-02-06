@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Zotistics is UCI's premier grade distribution analysis tool! We use the PeterPortal Public API to consolidate UCI grade data by professors, classes, quarters, and more.
 
-## Getting Started
+🔨 Built with:
 
-First, run the development server:
+- [PeterPortal API](https://github.com/icssc-projects/peterportal-public-api)
+- [GraphQL](https://graphql.org/)
+- [ReactJS](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- Doggles
 
-```bash
-npm run dev
-# or
-yarn dev
+## Our Mission
+
+🎇 Our mission is to improve the UCI student experience with course planning and encourage student software developers to create open-source applications that are beneficial to the Anteater community.
+
+## Documentation
+
+### Setting up your development environment
+
+1. Clone the Zotistics repository.
+
+```console
+$ git clone https://github.com/icssc-projects/Zotistics.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the root directory and install its dependencies.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```console
+$ cd Zotistics
+$ npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Start the development server.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```console
+$ npm run dev
+```
 
-## Learn More
+4. Zotistics should load locally at http://localhost:3000/
 
-To learn more about Next.js, take a look at the following resources:
+## Where does the data come from?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The data displayed on Zotistics is retrieved from the [PeterPortal API](https://github.com/icssc-projects/peterportal-public-api). Please report any data related issues directly to the [PeterPortal API repo](https://github.com/icssc-projects/peterportal-public-api/issues).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Bug Report
 
-## Deploy on Vercel
+🐞 If you encountered any issues or bug, please open an issue @ https://github.com/icssc-projects/Zotistics/issues/new
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Other Disclaimer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+✅ Although PeterPortal API data is consolidated directly from official UCI sources, this application is by all means, not an official UCI tool. We stride to keep our data as accurate as possible with the limited support we have from UCI. Please take that into consideration while using this website.
+
+## Terms & Conditions
+
+📜 There are no hard policies at the moment for utilizing this tool. However, please refrain from abusing the Website by methods such as: sending excessive amount of requests in a small period of time or purposely looking to exploit the system. This tool is here mainly to assist developers in bringing their idea to life to benefit all UCI students. Please don't ruin it for others! 🙂
