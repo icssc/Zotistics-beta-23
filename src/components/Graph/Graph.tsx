@@ -176,7 +176,7 @@ const Graph = () => {
         legendOffset: 32,
       }}
       valueFormat=">-.2%"
-      colors={queries.size === 1 ? chartColors : { scheme: "set2" } }
+      colors={queries.size === 1 ? chartColors : { scheme: "set2" }}
       colorBy={queries.size === 1 ? "indexValue": "id"}
       padding={0.25}
       innerPadding={6}
