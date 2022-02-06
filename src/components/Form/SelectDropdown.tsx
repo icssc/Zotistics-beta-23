@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
 import { StylesConfig } from "react-select";
+import { Option } from "src/types/index";
 import AsyncSelect from "react-select/async";
 import AsyncCreatableSelect from "react-select/async-creatable";
 import fuzzysort from "fuzzysort";
-import { Option } from "src/types/index";
 
 // Referencing tailwindcss styles in js would increase package size.
 // https://tailwindcss.com/docs/configuration#referencing-in-java-script
@@ -15,6 +15,7 @@ const colorsDark = {
   primary: "#3b82f6", // blue-500 focused
   primary25: "#1e40af", // blue-800 option hover
 };
+
 const colorsLight = {
   primary: "#3b82f6", // blue-500 focused
   primary25: "#dbeafe", // blue-100 option hover
@@ -22,10 +23,11 @@ const colorsLight = {
 
 const styleDark = {
   border: 0,
-}
+};
+
 const styleLight = {
   borderColor: "rgba(0, 0, 0, 0.075)",
-}
+};
 
 interface SelectDropdownProps {
   id: string;
@@ -48,7 +50,7 @@ const SelectDropdown = ({
 
   const { colorScheme } = useContext(ColorSchemeContext);
   const colors = colorScheme === "dark" ? colorsDark : colorsLight;
-  const styles = colorScheme === "dark" ? styleDark : styleLight
+  const styles = colorScheme === "dark" ? styleDark : styleLight;
 
   const filterOptions = (inputValue: string, options: (Option | undefined)[]) =>
     fuzzysort.goAsync(inputValue, options, { key: "value" });
@@ -78,7 +80,7 @@ const SelectDropdown = ({
     })
   };
 
-  const SelectTag = formType // SelectTag needs to be capitalized so JSX can render it
+  const SelectTag = formType; // SelectTag needs to be capitalized so JSX can render it
 
   return (
     <div>
