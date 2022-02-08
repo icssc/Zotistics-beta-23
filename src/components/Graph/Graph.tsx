@@ -167,7 +167,7 @@ const Graph = () => {
       groupMode="grouped"
       margin={{
         "top": 0,
-        "bottom": 0,
+        "bottom": 20,
         "left": 50,
         "right": 50
       }}
