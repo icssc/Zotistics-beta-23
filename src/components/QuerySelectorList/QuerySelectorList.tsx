@@ -9,7 +9,7 @@ const QuerySelectorList = () => {
   const { queries, addQuery } = useContext(QueriesContext);
 
   return (
-    <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-16">
+    <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-5">
       {Array.from(queries.entries()).map(([key]) => (
         <QuerySelector key={key} name="Search Query" queryId={key} />
       ))}

@@ -1,42 +1,32 @@
 import { useContext, useState } from "react";
 import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
+import { StylesConfig } from "react-select";
+import { Option } from "src/types/index";
+import { styleDark, styleLight } from "./styling"
+import { FormSelectType } from "./constants"
+import AsyncSelect from "react-select/async";
 import AsyncCreatableSelect from "react-select/async-creatable";
 import fuzzysort from "fuzzysort";
 
-import { Option } from "src/types/index";
-
-// Referencing tailwindcss styles in js would increase package size.
-// https://tailwindcss.com/docs/configuration#referencing-in-java-script
-// https://github.com/vercel/next.js/discussions/31841
-const colorsDark = {
-  neutral0: "#171717", // neutral-900 background
-  neutral20: "#525252", // neutral-600 border
-  neutral80: "#ffffff", // selected option text
-  primary: "#3b82f6", // blue-500 focused
-  primary25: "#1e40af", // blue-800 option hover
-};
-const colorsLight = {
-  neutral20: "#a3a3a3", // neutral-400 border
-  primary: "#3b82f6", // blue-500 focused
-  primary25: "#dbeafe", // blue-100 option hover
-};
-
-interface MultiSelectDropdownProps {
+interface SelectDropdownProps {
   id: string;
   label: string;
   endpoint?: string;
   value: Option[];
   setValue: (value: Option[]) => void;
+  formType: FormSelectType,
 }
 
-const MultiSelectDropdown = ({
+const SelectDropdown = ({
   id,
   label,
   endpoint,
   value,
   setValue,
-}: MultiSelectDropdownProps) => {
+  formType,
+}: SelectDropdownProps) => {
   const [options, setOptions] = useState<Option[]>([]);
+  const { colorScheme } = useContext(ColorSchemeContext);
 
   const filterOptions = (inputValue: string, options: (Option | undefined)[]) =>
     fuzzysort.goAsync(inputValue, options, { key: "value" });
@@ -58,8 +48,8 @@ const MultiSelectDropdown = ({
     setValue(value);
   };
 
-  const { colorScheme } = useContext(ColorSchemeContext);
-  const colors = colorScheme === "dark" ? colorsDark : colorsLight;
+  // SelectTag needs to be capitalized so JSX can render it
+  const SelectTag = formType === FormSelectType.NORMAL ? AsyncSelect : AsyncCreatableSelect;
 
   return (
     <div>
@@ -69,7 +59,7 @@ const MultiSelectDropdown = ({
       >
         {label}
       </label>
-      <AsyncCreatableSelect
+      <SelectTag
         id={id}
         instanceId={id}
         isMulti
@@ -80,16 +70,10 @@ const MultiSelectDropdown = ({
         // @ts-ignore
         onChange={handleChange}
         className="dark:text-white"
-        theme={(theme) => ({
-          ...theme,
-          colors: {
-            ...theme.colors,
-            ...colors,
-          },
-        })}
+        styles={colorScheme === "dark" ? styleDark : styleLight}
       />
     </div>
   );
 };
 
-export default MultiSelectDropdown;
+export default SelectDropdown;
