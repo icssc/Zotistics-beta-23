@@ -165,15 +165,16 @@ const Graph = () => {
       data={gradeValues}
       keys={queryIdsValue}
       groupMode="grouped"
+      margin={{
+        "top": 0,
+        "bottom": 0,
+        "left": 50,
+        "right": 50
+      }}
       axisLeft={{
-        legend: "% of students",
+        legend: "% of Students",
         legendPosition: "middle",
         legendOffset: -40,
-      }}
-      axisBottom={{
-        legend: "grade",
-        legendPosition: "middle",
-        legendOffset: 32,
       }}
       valueFormat=">-.2%"
       colors={queries.size === 1 ? chartColors : { scheme: "set2" }}
