@@ -2,32 +2,10 @@ import { useContext, useState } from "react";
 import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
 import { StylesConfig } from "react-select";
 import { Option } from "src/types/index";
+import { styleDark, styleLight } from "./styling"
 import AsyncSelect from "react-select/async";
 import AsyncCreatableSelect from "react-select/async-creatable";
 import fuzzysort from "fuzzysort";
-
-// Referencing tailwindcss styles in js would increase package size.
-// https://tailwindcss.com/docs/configuration#referencing-in-java-script
-// https://github.com/vercel/next.js/discussions/31841
-const colorsDark = {
-  neutral0: "#171717", // neutral-900 background
-  neutral80: "#ffffff", // selected option text
-  primary: "#3b82f6", // blue-500 focused
-  primary25: "#1e40af", // blue-800 option hover
-};
-
-const colorsLight = {
-  primary: "#3b82f6", // blue-500 focused
-  primary25: "#dbeafe", // blue-100 option hover
-};
-
-const styleDark = {
-  border: 0,
-};
-
-const styleLight = {
-  borderColor: "rgba(0, 0, 0, 0.075)",
-};
 
 interface SelectDropdownProps {
   id: string;
@@ -47,10 +25,7 @@ const SelectDropdown = ({
   formType,
 }: SelectDropdownProps) => {
   const [options, setOptions] = useState<Option[]>([]);
-
   const { colorScheme } = useContext(ColorSchemeContext);
-  const colors = colorScheme === "dark" ? colorsDark : colorsLight;
-  const styles = colorScheme === "dark" ? styleDark : styleLight;
 
   const filterOptions = (inputValue: string, options: (Option | undefined)[]) =>
     fuzzysort.goAsync(inputValue, options, { key: "value" });
@@ -70,14 +45,6 @@ const SelectDropdown = ({
 
   const handleChange = (value: Option[]) => {
     setValue(value);
-  };
-
-  // https://stackoverflow.com/questions/55264659/how-do-i-figure-out-which-react-select-style-keys-map-to-which-components
-  const style: StylesConfig = {
-    control: (base) => ({
-      ...base,
-      ...styles,
-    })
   };
 
   const SelectTag = formType; // SelectTag needs to be capitalized so JSX can render it
@@ -101,14 +68,7 @@ const SelectDropdown = ({
         // @ts-ignore
         onChange={handleChange}
         className="dark:text-white"
-        styles={style}
-        theme={(theme) => ({
-          ...theme,
-          colors: {
-            ...theme.colors,
-            ...colors,
-          },
-        })}
+        styles={colorScheme === "dark" ? styleDark : styleLight}
       />
     </div>
   );
