@@ -1,9 +1,7 @@
 import { useContext } from "react";
-import SelectDropdown from "./SelectDropdown";
-import AsyncSelect from "react-select/async";
-import AsyncCreatableSelect from "react-select/async-creatable";
-
+import { FormSelectType } from "./constants"
 import { QueriesContext } from "src/contexts/queries/queries";
+import SelectDropdown from "./SelectDropdown";
 
 const Form = () => {
   const { queries, updateQuery, selectedQuery } = useContext(QueriesContext);
@@ -16,7 +14,7 @@ const Form = () => {
         endpoint={"/api/instructors"}
         value={queries.get(selectedQuery)?.instructors ?? []}
         setValue={(value) => updateQuery(selectedQuery, "instructors", value)}
-        formType={AsyncSelect}
+        formType={FormSelectType.NORMAL}
       />
       <SelectDropdown
         id="quarters"
@@ -24,7 +22,7 @@ const Form = () => {
         endpoint={"/api/quarters"}
         value={queries.get(selectedQuery)?.quarters ?? []}
         setValue={(value) => updateQuery(selectedQuery, "quarters", value)}
-        formType={AsyncSelect}
+        formType={FormSelectType.NORMAL}
       />
       <SelectDropdown
         id="years"
@@ -32,7 +30,7 @@ const Form = () => {
         endpoint={"/api/years"}
         value={queries.get(selectedQuery)?.years ?? []}
         setValue={(value) => updateQuery(selectedQuery, "years", value)}
-        formType={AsyncSelect}
+        formType={FormSelectType.NORMAL}
       />
       <SelectDropdown
         id="departments"
@@ -40,7 +38,7 @@ const Form = () => {
         endpoint={"/api/departments"}
         value={queries.get(selectedQuery)?.departments ?? []}
         setValue={(value) => updateQuery(selectedQuery, "departments", value)}
-        formType={AsyncSelect}
+        formType={FormSelectType.NORMAL}
       />
       <SelectDropdown
         id="course-code"
@@ -48,7 +46,7 @@ const Form = () => {
         // endpoint={"/api/departments"}
         value={queries.get(selectedQuery)?.courseCode ?? []}
         setValue={(value) => updateQuery(selectedQuery, "courseCode", value)}
-        formType={AsyncCreatableSelect}
+        formType={FormSelectType.CREATABLE}
       />
       <SelectDropdown
         id="class-code"
@@ -56,7 +54,7 @@ const Form = () => {
         // endpoint={"/api/departments"}
         value={queries.get(selectedQuery)?.classCode ?? []}
         setValue={(value) => updateQuery(selectedQuery, "classCode", value)}
-        formType={AsyncCreatableSelect}
+        formType={FormSelectType.CREATABLE}
       />
     </div>
   );
