@@ -28,7 +28,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       );
       const allYears = Array.from(new Set(years));
 
-      res.status(200).json(allYears);
+      res.status(200).json(allYears.reverse());
     }
   );
 };
