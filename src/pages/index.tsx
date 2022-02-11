@@ -27,10 +27,10 @@ const Home: NextPage = () => {
       }
     >
       <Nav />
-      <main className="mt-2 content">
+      <main className="mt-1 content">
         <Form />
         <QuerySelectorList />
-        <div className="mt-8 h-96">
+        <div className="mt-7 h-96">
           <Graph />
         </div>
       </main>

@@ -67,9 +67,22 @@ const optionsDark = {
         fontSize: 12,
       },
     },
+    grid: {
+      line: {
+        stroke: '#313233'
+      }
+    },
   },
 };
-const optionsLight = {};
+const optionsLight = {
+  theme:{
+    grid: {
+      line: {
+        stroke: '#e5e7eb'
+      }
+    },
+  }
+  };
 
 interface gradeValue {
   id: "A" | "B" | "C" | "D" | "F" | "P" | "NP";
@@ -77,9 +90,15 @@ interface gradeValue {
 }
 
 // bar colors if there is only one search query
-const letterGradeBarColor = 'rgba(54, 162, 235, 0.7)'
-const pnpBarColor = 'rgba(255, 206, 86, 0.7)'
-const chartColors = Array(5).fill(letterGradeBarColor).concat(Array(2).fill(pnpBarColor))
+const letterGradeBarColor = (opacity: number) => `rgba(54, 162, 235, ${opacity})`
+const pnpBarColor = (opacity:number) => `rgba(255, 206, 86, ${opacity})`
+const chartColorsSingleDark = Array(5).fill(letterGradeBarColor(0.9)).concat(Array(2).fill(pnpBarColor(0.9)))
+const chartColorsSingleLight = Array(5).fill(letterGradeBarColor(0.7)).concat(Array(2).fill(pnpBarColor(0.7)))
+const chartColorsMultipleDark = ["rgba(34, 87, 122, 0.9)", "rgba(56, 163, 165, 0.9)", "rgba(87, 204, 153, 0.9)",
+  "rgba(128, 237, 153, 0.9)", "rgba(199, 249, 204, 0.9)"]
+const chartColorsMultipleLight = ["rgba(34, 87, 122, 0.7)", "rgba(56, 163, 165, 0.7)", "rgba(87, 204, 153, 0.7)",
+  "rgba(128, 237, 153, 0.7)", "rgba(199, 249, 204, 0.7)"]
+
 
 const Graph = () => {
   const { queries, updateQueryState } = useContext(QueriesContext);
@@ -160,6 +179,20 @@ const Graph = () => {
     });
   }, [queryIdsValue, queries]);
 
+  const barColors = () => {
+    if(queries.size === 1) {
+      if(colorScheme === "dark") {
+        return chartColorsSingleDark
+      }
+      return chartColorsSingleLight
+    } else {
+      if(colorScheme === "dark") {
+        return chartColorsMultipleDark
+      }
+      return chartColorsMultipleLight
+    }
+  }
+
   return (
     <DynamicComponent
       data={gradeValues}
@@ -177,7 +210,7 @@ const Graph = () => {
         legendOffset: -40,
       }}
       valueFormat=">-.2%"
-      colors={queries.size === 1 ? chartColors : { scheme: "set2" }}
+      colors={barColors()}
       colorBy={queries.size === 1 ? "indexValue": "id"}
       padding={0.25}
       innerPadding={6}
