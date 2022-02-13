@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FormSelectType } from "./constants"
+import { FormSelectType } from "./constants";
 import { QueriesContext } from "src/contexts/queries/queries";
 import SelectDropdown from "./SelectDropdown";
 

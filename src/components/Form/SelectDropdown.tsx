@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
 import { StylesConfig } from "react-select";
 import { Option } from "src/types/index";
-import { styleDark, styleLight } from "./styling"
-import { FormSelectType } from "./constants"
+import { styleDark, styleLight } from "./styling";
+import { FormSelectType } from "./constants";
 import AsyncSelect from "react-select/async";
 import AsyncCreatableSelect from "react-select/async-creatable";
 import fuzzysort from "fuzzysort";
@@ -14,7 +14,7 @@ interface SelectDropdownProps {
   endpoint?: string;
   value: Option[];
   setValue: (value: Option[]) => void;
-  formType: FormSelectType,
+  formType: FormSelectType;
 }
 
 const SelectDropdown = ({
@@ -49,7 +49,8 @@ const SelectDropdown = ({
   };
 
   // SelectTag needs to be capitalized so JSX can render it
-  const SelectTag = formType === FormSelectType.NORMAL ? AsyncSelect : AsyncCreatableSelect;
+  const SelectTag =
+    formType === FormSelectType.NORMAL ? AsyncSelect : AsyncCreatableSelect;
 
   return (
     <div>
