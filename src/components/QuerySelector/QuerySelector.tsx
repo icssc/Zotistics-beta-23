@@ -2,6 +2,7 @@ import { useContext } from "react";
 
 import Sync from "~icons/ion/sync-outline.jsx";
 import Close from "~icons/ion/close-outline.jsx";
+import Pencil from "~icons/ion/pencil-outline.jsx";
 
 import {QueriesContext} from "src/contexts/queries/queries";
 
@@ -20,8 +21,8 @@ const Query = ({name, queryId, color}: QueryProps) => {
             <div
                 className={
                     `grid grid-flow-col gap-1 items-center cursor-pointer py-2 pr-1 pl-2 text-sm rounded-lg dark:text-slate-100
-            bg-[#f2f2f2] hover:bg-[#e7e7e7] dark:bg-[#171717] dark:hover:bg-[#363636] hover:font-medium
-            ${(selectedQuery === queryId && "bg-[#e1e1e1] dark:bg-[#292929]")}`
+            bg-[#f2f2f2] hover:bg-[#e7e7e7] dark:bg-[#171717] dark:hover:bg-[#363636]
+            ${(selectedQuery === queryId && "bg-[#d4d4d4] dark:bg-[#303030]")}`
                 }
                 onClick={() => {
                     setSelectedQuery(queryId);
@@ -46,7 +47,7 @@ const Query = ({name, queryId, color}: QueryProps) => {
             {color &&
                 <span
                     style={{
-                        height: selectedQuery === queryId ? "3px" : "2px",
+                        height: selectedQuery === queryId ? "4px" : "2px",
                         width: '97%',
                         backgroundColor: color,
                         borderRadius: '99px',
