@@ -59,19 +59,13 @@ const condenseText = (
     text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year}`;
   }
   if (text.length > MAX_LENGTH) {
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(
-      -2
-    )}`;
+    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(
-      -2
-    )}`;
+    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean.charAt(
-      0
-    )}${year.slice(-2)}`;
+    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
     const difference = text.length - MAX_LENGTH;
@@ -81,9 +75,7 @@ const condenseText = (
     if (instructor_clean.length > difference + 3 && difference > 2) {
       instructor_clean = instructor_clean.slice(0, -difference);
     }
-    text = `${instructor_clean} ${department} ${classNumber} ${quarter_clean.charAt(
-      0
-    )}${year.slice(-2)}`;
+    text = `${instructor_clean} ${department} ${classNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
   }
 
   text = text.trim();
