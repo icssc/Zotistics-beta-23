@@ -8,7 +8,7 @@ import { QueriesContext } from "src/contexts/queries/queries";
 interface QueryProps {
   name: string;
   queryId: any;
-  color: string;
+  color: string | null;
 }
 
 const Query = ({ name, queryId, color }: QueryProps) => {

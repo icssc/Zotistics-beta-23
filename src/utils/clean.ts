@@ -100,7 +100,11 @@ const condenseText = (
   return text;
 };
 
-export const querySelectorText = (query: Query) => {
+export const querySelectorText = (query: Query | undefined) => {
+  if (!query) {
+    return ""
+  }
+
   const quarterYear = queryQuarterYear(query.quarters, query.years);
   const quarter = quarterYear.quarter || "";
   const year = quarterYear.year || "";
