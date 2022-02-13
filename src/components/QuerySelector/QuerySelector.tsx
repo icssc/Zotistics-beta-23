@@ -2,7 +2,6 @@ import { useContext } from "react";
 
 import Sync from "~icons/ion/sync-outline.jsx";
 import Close from "~icons/ion/close-outline.jsx";
-import Pencil from "~icons/ion/pencil-outline.jsx";
 
 import {QueriesContext} from "src/contexts/queries/queries";
 
