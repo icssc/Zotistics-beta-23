@@ -1,4 +1,4 @@
 export enum FormSelectType {
-    NORMAL,
-    CREATABLE
+  NORMAL,
+  CREATABLE,
 }

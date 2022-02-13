@@ -16,7 +16,9 @@ const MobileNavMenu = () => {
       <Link href="/posts/faq">
         <a>FAQ</a>
       </Link>
-      <a href="https://forms.gle/oyN3GBpiyyNcS6uY6" target="_blank">Feedback</a>
+      <a href="https://forms.gle/oyN3GBpiyyNcS6uY6" target="_blank">
+        Feedback
+      </a>
     </menu>
   );
 };
