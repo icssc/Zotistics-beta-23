@@ -43,12 +43,9 @@ const Query = ({ name, queryId, color }: QueryProps) => {
       </div>
       {color && (
         <span
+          className={`h-[2px] w-[97%] rounded-[99px] mt-1 mx-auto mb-0 ${selectedQuery === queryId && "h-[4px]"}`}
           style={{
-            height: selectedQuery === queryId ? "4px" : "2px",
-            width: "97%",
             backgroundColor: color,
-            borderRadius: "99px",
-            margin: "0.25rem auto 0",
           }}
         />
       )}

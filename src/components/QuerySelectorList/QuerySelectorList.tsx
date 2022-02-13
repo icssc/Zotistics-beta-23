@@ -21,7 +21,6 @@ const QuerySelectorList = () => {
   return (
     <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-3">
       {Array.from(queries.entries()).map(([key], index) => (
-        // @ts-ignore
         <QuerySelector
           key={key}
           name={querySelectorText(queries.get(key))}

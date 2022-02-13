@@ -55,15 +55,19 @@ const condenseText = (
   let text = `${instructor} ${department} ${classNumber} ${quarter_clean} ${year}`.trim();
 
   if (text.length > MAX_LENGTH) {
+    // prettier-ignore
     text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year}`;
   }
   if (text.length > MAX_LENGTH) {
+    // prettier-ignore
     text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
+    // prettier-ignore
     text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
+    // prettier-ignore
     text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
