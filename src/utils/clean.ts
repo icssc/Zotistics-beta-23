@@ -52,8 +52,7 @@ const condenseText = (
 
   const MAX_LENGTH = 20;
   const instructor_last_name = instructor.split(",")[0];
-  let text =
-    `${instructor} ${department} ${classNumber} ${quarter_clean} ${year}`.trim();
+  let text = `${instructor} ${department} ${classNumber} ${quarter_clean} ${year}`.trim();
 
   if (text.length > MAX_LENGTH) {
     text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year}`;
