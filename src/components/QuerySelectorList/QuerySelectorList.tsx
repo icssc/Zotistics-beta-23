@@ -10,15 +10,17 @@ const chartColorsMultiple = ["#22577A", "#38A3A5", "#57CC99", "#80ED99", "#C7F9C
 
 const QuerySelectorList = () => {
   const { queries, addQuery } = useContext(QueriesContext);
+  const MAX_QUERIES = 5;
+
   return (
     <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-3">
       {Array.from(queries.entries()).map(([key], index) => (
           // @ts-ignore
           <QuerySelector key={key} name={querySelectorText(queries.get(key))} queryId={key} color={queries.size > 1 ? chartColorsMultiple[index] : null}/>
       ))}
-      <button className="text-[24px] dark:text-white mb-1" onClick={addQuery}>
-        <Add />
-      </button>
+        {queries.size < MAX_QUERIES && <button className="text-[24px] dark:text-white" onClick={addQuery}>
+          <Add />
+        </button>}
     </menu>
   );
 };
