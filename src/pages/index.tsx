@@ -34,7 +34,7 @@ const Home: NextPage = () => {
           <Graph />
         </div>
       </main>
-      <div className="fixed left-0 bottom-0 text-[0]">
+      <div className="fixed lg:block hidden left-0 bottom-0 text-[0]">
         <Image src={dogPic} width={240} height={200} placeholder="blur" />
       </div>
     </QueriesProvider>
