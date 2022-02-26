@@ -3,10 +3,15 @@ Zotistics is UCI's premier grade distribution analysis tool! We use the PeterPor
 🔨 Built with:
 
 - [PeterPortal API](https://github.com/icssc-projects/peterportal-public-api)
-- [GraphQL](https://graphql.org/)
-- [ReactJS](https://reactjs.org/)
+- [GraphQL](https://graphql.org/) with [Apollo](https://www.apollographql.com/)
+- [Next.JS](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- Doggles
+- [unplugin-icons](https://github.com/antfu/unplugin-icons)
+- [Headless UI](https://headlessui.dev/)
+- [React Select](https://react-select.com/home)
+- [nivo](https://nivo.rocks/bar)
+- [MDX](https://mdxjs.com/) & [gray-matter](https://github.com/jonschlinkert/gray-matter)
+- [Doggles](https://github.com/icssc-projects/Zotistics/blob/main/src/assets/doggles.png)
 
 ## Our Mission
 
