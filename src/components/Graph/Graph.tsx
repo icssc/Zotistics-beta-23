@@ -229,6 +229,8 @@ const Graph = () => {
       padding={0.25}
       innerPadding={6}
       borderRadius={4}
+      // @ts-ignore
+      tooltipLabel={(data) => data.indexValue}
       {...props}
     />
   );
