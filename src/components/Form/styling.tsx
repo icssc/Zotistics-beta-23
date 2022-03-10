@@ -7,6 +7,10 @@ export const styleDark: StylesConfig = {
     border: 0,
     backgroundColor: "#171717",
   }),
+  input: (base) => ({
+    ...base,
+    color: "#a3a3a3",
+  }),
   dropdownIndicator: (base) => ({
     ...base,
     color: "#525252",
