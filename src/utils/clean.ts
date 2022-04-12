@@ -118,7 +118,7 @@ export const querySelectorText = (query: Query | undefined) => {
     classNumber = query.courseCode[0].value;
   }
   if (query.classCode.length == 1) {
-    classCode = query.courseCode[0].value;
+    classCode = query.classCode[0].value;
   }
 
   return condenseText(
