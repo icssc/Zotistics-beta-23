@@ -29,7 +29,9 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         (gradeDistribution) =>
           gradeDistribution.course_offering.course.department
       );
-      const allDepartments = Array.from(new Set(departments));
+      const allDepartments = Array.from(new Set(departments)).sort((a, b) =>
+        a.localeCompare(b, "en", { sensitivity: "base" })
+      );
 
       res.status(200).json(allDepartments);
     }

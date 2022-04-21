@@ -32,16 +32,18 @@ const SelectDropdown = ({
     fuzzysort.goAsync(inputValue, options, { key: "value" });
 
   const loadOptions = async (inputValue: string) => {
+    // Fetch results from serverless function
     if (endpoint && !options.length) {
       const response = await fetch(endpoint);
       const data: string[] = await response.json();
       const options = data.map((option) => ({ value: option, label: option }));
       setOptions(options);
-      return options;
+      return options.slice(0, 50);
     }
-    return (await filterOptions(inputValue, options)).map(
-      (option) => option.obj
-    );
+    // Fuzzy search on client
+    return (await filterOptions(inputValue, options))
+      .map((option) => option.obj)
+      .slice(0, 50);
   };
 
   const handleChange = (value: Option[]) => {
