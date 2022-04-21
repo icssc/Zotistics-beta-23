@@ -31,7 +31,9 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       const instructorShortenedNames = instructors
         .flat()
         .map((instructor) => instructor.shortened_name);
-      const allInstructors = Array.from(new Set(instructorShortenedNames));
+      const allInstructors = Array.from(new Set(instructorShortenedNames)).sort(
+        (a, b) => a.localeCompare(b, "en", { sensitivity: "base" })
+      );
 
       res.status(200).json(allInstructors);
     }
