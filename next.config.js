@@ -1,5 +1,3 @@
-const { FileSystemIconLoader } = require("unplugin-icons/loaders");
-
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
@@ -48,18 +46,6 @@ const nextConfig = {
         },
       ],
     });
-    config.plugins.push(
-      require("unplugin-icons/webpack")({
-        compiler: "jsx",
-        jsx: "react",
-        scale: 1,
-        customCollections: {
-          custom: FileSystemIconLoader("./src/assets/icons", (svg) =>
-            svg.replace(/^<svg /, '<svg fill="currentColor" ')
-          ),
-        },
-      })
-    );
 
     return config;
   },
