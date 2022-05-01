@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { ColorSchemeContext } from "src/contexts/colorSchemeToggle/colorSchemeContext";
 
-import Sunny from "~icons/ion/sunny-outline.jsx";
-import Moon from "~icons/ion/moon-outline.jsx";
+import { Sun, Moon } from "react-feather";
 
 const ColorSchemeToggle = () => {
   const { colorScheme, toggleColorScheme } = useContext(ColorSchemeContext);
@@ -10,11 +9,11 @@ const ColorSchemeToggle = () => {
   return (
     <button
       aria-label={`${colorScheme === "dark" ? "disable" : "enable"} dark mode`}
-      className="text-[24px] cursor-pointer block"
+      className="cursor-pointer block"
       onClick={toggleColorScheme}
     >
-      {colorScheme === "dark" && <Sunny />}
-      {colorScheme === "light" && <Moon />}
+      {colorScheme === "dark" && <Sun size={24} strokeWidth={1.5} />}
+      {colorScheme === "light" && <Moon size={24} strokeWidth={1.5} />}
     </button>
   );
 };

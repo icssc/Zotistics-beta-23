@@ -2,10 +2,8 @@ import { Fragment, useState } from "react";
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 
-import Logo from "~icons/custom/logo.jsx";
-import Menu from "~icons/ion/menu-outline.jsx";
-import ChevronDown from "~icons/ion/chevron-down-outline.jsx";
-import ReturnUpBack from "~icons/ion/return-up-back-outline.jsx";
+import { Menu, CornerUpLeft } from "react-feather";
+import Logo from "./Logo";
 
 import MobileNavMenu from "./MobileNavMenu";
 import ColorSchemeToggle from "src/components/ColorSchemeToggle/ColorSchemeToggle";
@@ -44,7 +42,7 @@ const Nav = () => {
           </div>
 
           <Link href="/">
-            <a aria-label="Home" className="text-[32px] justify-self-center">
+            <a aria-label="Home" className="w-8 h-8 justify-self-center">
               <Logo />
             </a>
           </Link>
@@ -58,15 +56,13 @@ const Nav = () => {
         <div className="hidden grid-cols-3 md:grid content">
           <Link href="https://old.zotistics.com">
             <a className="grid grid-flow-col gap-2 justify-self-start items-center">
-              <span className="text-[24px]">
-                <ReturnUpBack />
-              </span>
+              <CornerUpLeft size={24} strokeWidth={1.5} />
               old.zotistics.com
             </a>
           </Link>
 
           <Link href="/">
-            <a aria-label="Home" className="text-[32px] justify-self-center">
+            <a aria-label="Home" className="w-8 h-8 justify-self-center">
               <Logo />
             </a>
           </Link>

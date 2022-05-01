@@ -63,7 +63,6 @@ const PostPage = ({ source, frontMatter }: PostPageProps) => {
         />
         <meta property="og:description" content={frontMatter.description} />
       </Head>
-      <Nav />
       <main className="mt-10 mb-12 dark:text-white content">
         <h1 className="mb-8 text-4xl font-medium">{frontMatter.title}</h1>
         <MDXRemote {...source} components={components} />

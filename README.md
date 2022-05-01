@@ -6,7 +6,6 @@ Zotistics is UCI's premier grade distribution analysis tool! We use the PeterPor
 - [GraphQL](https://graphql.org/) with [Apollo](https://www.apollographql.com/)
 - [Next.JS](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [unplugin-icons](https://github.com/antfu/unplugin-icons)
 - [Headless UI](https://headlessui.dev/)
 - [React Select](https://react-select.com/home)
 - [nivo](https://nivo.rocks/bar)

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { querySelectorText } from "../../utils/clean";
 import QuerySelector from "src/components/QuerySelector/QuerySelector";
 
-import Add from "~icons/ion/add-circle-outline.jsx";
+import { PlusCircle } from "react-feather";
 
 import { QueriesContext } from "src/contexts/queries/queries";
 
@@ -29,8 +29,8 @@ const QuerySelectorList = () => {
         />
       ))}
       {queries.size < MAX_QUERIES && (
-        <button className="text-[24px] dark:text-white" onClick={addQuery}>
-          <Add />
+        <button className="dark:text-white" onClick={addQuery}>
+          <PlusCircle size={24} strokeWidth={1.5} />
         </button>
       )}
     </menu>
