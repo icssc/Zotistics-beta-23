@@ -3,6 +3,8 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
+import Layout from "src/layouts/Layout";
+
 import ColorSchemeContextProvider from "src/contexts/colorSchemeToggle/ColorSchemeContextProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -41,7 +43,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ColorSchemeContextProvider>
   );
 }
