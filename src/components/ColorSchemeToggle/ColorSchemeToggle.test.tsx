@@ -6,14 +6,6 @@ import ColorSchemeContextProvider from "src/contexts/colorSchemeToggle/ColorSche
 
 describe("color scheme toggle", () => {
   beforeEach(() => {
-    // mocking icons because https://github.com/antfu/unplugin-icons/issues/108
-    jest.mock("~icons/ion/sunny-outline.jsx", () => () => <></>, {
-      virtual: true,
-    });
-    jest.mock("~icons/ion/moon-outline.jsx", () => () => <></>, {
-      virtual: true,
-    });
-
     const ColorSchemeToggle = require("./colorSchemeToggle").default;
 
     render(

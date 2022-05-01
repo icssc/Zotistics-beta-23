@@ -1,7 +1,6 @@
 import { useContext } from "react";
 
-import Sync from "~icons/ion/sync-outline.jsx";
-import Close from "~icons/ion/close-outline.jsx";
+import { Loader, X } from "react-feather";
 
 import { QueriesContext } from "src/contexts/queries/queries";
 
@@ -27,7 +26,7 @@ const Query = ({ name, queryId, color }: QueryProps) => {
       >
         {states.get(queryId)?.loading && (
           <span className="animate-spin">
-            <Sync />
+            <Loader size={16} strokeWidth={1.5} />
           </span>
         )}
         {name}
@@ -37,13 +36,15 @@ const Query = ({ name, queryId, color }: QueryProps) => {
           }}
         >
           <span className="text-base">
-            <Close />
+            <X size={16} strokeWidth={1.5} />
           </span>
         </button>
       </div>
       {color && (
         <span
-          className={`h-[2px] w-[97%] rounded-[99px] mt-1 mx-auto mb-0 ${selectedQuery === queryId && "h-[4px]"}`}
+          className={`h-[2px] w-[97%] rounded-[99px] mt-1 mx-auto mb-0 ${
+            selectedQuery === queryId && "h-[4px]"
+          }`}
           style={{
             backgroundColor: color,
           }}
