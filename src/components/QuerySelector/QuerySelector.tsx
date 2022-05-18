@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import { Loader, X, Info } from "react-feather";
 import { QueriesContext } from "src/contexts/queries/queries";
 import Modal from "../DetailsTable/Modal";

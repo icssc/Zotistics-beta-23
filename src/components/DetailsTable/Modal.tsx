@@ -2,7 +2,7 @@ import React, {Dispatch, Fragment, useContext, useEffect, useState} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { FilteredData } from "../../types";
 import { QueriesContext } from "../../contexts/queries/queries";
-import { X } from "react-feather";
+import { X, Loader } from "react-feather";
 import DetailsTable from "./DetailsTable";
 
 interface TableProps {
@@ -14,8 +14,10 @@ interface TableProps {
 function Modal({isOpen, setIsOpen, queryID}: TableProps) {
     const { queries } = useContext(QueriesContext);
     const [dataInfo, setDataInfo] = useState<FilteredData[]>([]);
+    const [isLoading, setisLoading] = useState(true)
 
     useEffect(() => {
+        console.log('useEffect')
         const fetchData = async () => {
             const query = queries.get(queryID)
             if(!query) { return }
@@ -47,8 +49,12 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
                     code: d.code,
                     average_gpa: d.averageGPA
                 }))
+                setisLoading(false)
                 setDataInfo(filteredData.reverse())
             });
+        return () => {
+            console.log('unmounted')
+        }
     }, [])
 
     return (
@@ -83,8 +89,11 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
                                         <X className="text-gray-600 dark:text-neutral-300" size={28} strokeWidth={2} />
                                     </button>
                                 </div>
-                                <div className="flex-shrink overflow-auto">
-                                    <DetailsTable dataInfo={dataInfo} />
+                                <div className={`flex-shrink ${!isLoading && "overflow-auto"}`}>
+                                    {isLoading ?
+                                        <div className="flex items-center justify-center align-center"><Loader className="animate-spin dark:text-neutral-300" size={50} /></div> :
+                                        <DetailsTable dataInfo={dataInfo} />
+                                    }
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
