@@ -79,7 +79,7 @@ export default function DetailsTable({dataInfo}: TableProps) {
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
-                            <th className="px-6 py-3" {...column.getHeaderProps()}>{column.render('Header')}</th>
+                            <th className="px-3 py-3" {...column.getHeaderProps()}>{column.render('Header')}</th>
                         ))}
                     </tr>
                 ))}
@@ -90,7 +90,7 @@ export default function DetailsTable({dataInfo}: TableProps) {
                     return (
                         <tr {...row.getRowProps()} className="bg-white border-b dark:bg-neutral-800 dark:border-neutral-600">
                             {row.cells.map((cell: any) => {
-                                return <td className="px-6 py-4" {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                return <td className="px-3 py-3.5" {...cell.getCellProps()}>{cell.render('Cell')}</td>
                             })}
                         </tr>
                     )
