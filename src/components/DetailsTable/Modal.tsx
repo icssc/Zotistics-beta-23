@@ -91,7 +91,7 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
                                 </div>
                                 <div className={`flex-shrink ${!isLoading && "overflow-auto"}`}>
                                     {isLoading ?
-                                        <div className="flex items-center justify-center align-center"><Loader className="animate-spin dark:text-neutral-300" size={50} /></div> :
+                                        <div className="flex items-center justify-center align-center"><Loader className="animate-spin dark:text-neutral-300" size={40} /></div> :
                                         <DetailsTable dataInfo={dataInfo} />
                                     }
                                 </div>
