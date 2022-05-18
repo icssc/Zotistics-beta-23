@@ -71,7 +71,7 @@ export default function DetailsTable({dataInfo}: TableProps) {
     return (
         <>
             <table {...getTableProps()} className="w-full text-sm text-left text-gray-500 dark:text-neutral-300">
-                <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-neutral-700 dark:text-neutral-300">
+                <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-zinc-200 dark:bg-neutral-700 dark:text-neutral-300">
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (

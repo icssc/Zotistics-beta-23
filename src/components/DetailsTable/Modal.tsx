@@ -95,7 +95,7 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="relative flex flex-col w-full max-w-6xl min-w-[50vw] max-h-[85vh] max-h[-webkit-fill-available] transform rounded-2xl bg-white pb-10 text-left align-middle shadow-xl transition-all px-0 dark:bg-[#161616]">
+                            <Dialog.Panel className="relative flex flex-col w-full max-w-6xl min-w-[50vw] max-h-[85vh] max-h[-webkit-fill-available] transform rounded-2xl bg-zinc-100 pb-10 text-left align-middle shadow-xl transition-all px-0 dark:bg-[#161616]">
                                 <div className="flex justify-end align-middle p-1 pr-2">
                                     <button className="hover:dark:bg-red-500 hover:rounded-md hover:bg-red-400" onClick={() => setIsOpen(false)}>
                                         <X className="text-gray-600 dark:text-neutral-300" size={28} strokeWidth={2} />
