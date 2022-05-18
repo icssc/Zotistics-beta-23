@@ -97,26 +97,28 @@ export default function DetailsTable({dataInfo}: TableProps) {
                 })}
                 </tbody>
             </table>
-            <div className="absolute bottom-2 left-5 text-gray-600 dark:text-neutral-300">
-                {data.length} Classes
-            </div>
-            <div className="flex items-center absolute bottom-2 right-5 pagination text-gray-600 dark:text-neutral-300">
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                    <ChevronsLeft />
-                </button>
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                    <ChevronLeft />
-                </button>
-                <span className="px-1">
+            <div className="flex absolute justify-end sm:justify-between w-full sm:px-5 bottom-2 right-0 pagination text-gray-600 dark:text-neutral-300">
+                <div className="hidden sm:flex">
+                    {data.length} Classes
+                </div>
+                <div className="flex items-center">
+                    <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                        <ChevronsLeft />
+                    </button>
+                    <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                        <ChevronLeft />
+                    </button>
+                    <span className="px-1">
                     <strong>{pageIndex + 1}</strong> / {pageOptions.length}
                 </span>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
-                    <ChevronRight />
-                </button>
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                    <ChevronsRight />
-                </button>
-                <PageCountDropBox pageSize={pageSize} setPageSize={setPageSize} />
+                    <button onClick={() => nextPage()} disabled={!canNextPage}>
+                        <ChevronRight />
+                    </button>
+                    <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                        <ChevronsRight />
+                    </button>
+                    <PageCountDropBox pageSize={pageSize} setPageSize={setPageSize} />
+                </div>
             </div>
         </>
     )
