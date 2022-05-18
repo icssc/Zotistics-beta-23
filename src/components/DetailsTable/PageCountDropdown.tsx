@@ -32,7 +32,7 @@ export default function PageCountDropdown({pageSize, setPageSize}: DropdownProps
                 <Menu.Items className="origin-top-right bottom-full absolute right-0 mb-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-[#303030]">
                     <div className="py-1">
                         {PAGE_SIZES.map(count => (
-                            <Menu.Item>
+                            <Menu.Item key={count}>
                                 {({ active }) => (
                                     <button
                                         className={`${
