@@ -15,13 +15,7 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
     const { queries } = useContext(QueriesContext);
     const [dataInfo, setDataInfo] = useState<FilteredData[]>([]);
 
-    console.log('dataInfo')
-    console.log(dataInfo)
-
-    console.log('queries')
-    console.log(queries)
     useEffect(() => {
-        console.log(queries.get(queryID))
         const fetchData = async () => {
             const query = queries.get(queryID)
             if(!query) { return }
@@ -36,7 +30,6 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
 
             const queryParams = new URLSearchParams(params)
             const queryURL = "https://api.peterportal.org/rest/v0/grades/raw?" + queryParams.toString()
-            console.log(queryURL)
 
             return await fetch(queryURL)
                 .then(res => res.json())
@@ -55,7 +48,6 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
                     average_gpa: d.averageGPA
                 }))
                 setDataInfo(filteredData.reverse())
-                console.log('data info set')
             });
     }, [])
 
