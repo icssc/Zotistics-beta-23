@@ -3,8 +3,6 @@ import QueriesProvider from "src/contexts/queries/QueriesProvider";
 import Form from "src/components/Form/Form";
 import QuerySelectorList from "src/components/QuerySelectorList/QuerySelectorList";
 import Graph from "src/components/Graph/Graph";
-import Image from "next/image";
-import dogPic from "src/assets/doggles.png";
 
 const Home: NextPage = () => {
   return (
@@ -32,9 +30,6 @@ const Home: NextPage = () => {
           <Graph />
         </div>
       </main>
-      <div className="fixed lg:block hidden left-0 bottom-0 text-[0]">
-        <Image src={dogPic} width={240} height={200} placeholder="blur" />
-      </div>
     </QueriesProvider>
   );
 };
