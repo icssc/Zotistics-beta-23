@@ -11,6 +11,19 @@ interface TableProps {
     queryID: any
 }
 
+export function exactTerm(quarter:string, year:string){
+    let yearSplit = year.split('-');
+    let quarterUpper = quarter.toUpperCase()
+    let exactYear;
+    if(quarterUpper === 'SUMMER' || quarterUpper === 'FALL'){
+        exactYear = yearSplit[0]
+    } else if(quarterUpper === 'WINTER' || quarterUpper === 'SPRING'){
+        exactYear = yearSplit[0][0] + yearSplit[0][1] + yearSplit[1]
+    }
+
+    return `${quarter} ${exactYear}`
+}
+
 function Modal({isOpen, setIsOpen, queryID}: TableProps) {
     const { queries } = useContext(QueriesContext);
     const [dataInfo, setDataInfo] = useState<FilteredData[]>([]);
@@ -40,8 +53,7 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
         fetchData().then(
             data => {
                 const filteredData = data.map((d:any) => ({
-                    year: d.year,
-                    quarter: d.quarter,
+                    term: exactTerm(d.quarter, d.year),
                     department: d.department,
                     number: d.number,
                     title: d.title,

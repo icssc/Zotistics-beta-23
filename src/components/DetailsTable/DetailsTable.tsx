@@ -7,12 +7,8 @@ import PageCountDropBox from "./PageCountDropdown";
 const COLUMN_NAMES =
     [
         {
-            Header: 'Year',
-            accessor: 'year',
-        },
-        {
-            Header: 'Quarter',
-            accessor: 'quarter',
+            Header: 'Term',
+            accessor: 'term',
         },
         {
             Header: 'Department',
