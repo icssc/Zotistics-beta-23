@@ -98,19 +98,19 @@ export default function DetailsTable({dataInfo}: TableProps) {
                     {data.length} Classes
                 </div>
                 <div className="flex items-center">
-                    <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                    <button className={canPreviousPage ? "hover:text-black dark:hover:text-white" : ""} onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                         <ChevronsLeft />
                     </button>
-                    <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                    <button className={canPreviousPage ? "hover:text-black dark:hover:text-white" : ""} onClick={() => previousPage()} disabled={!canPreviousPage}>
                         <ChevronLeft />
                     </button>
                     <span className="px-1">
                     <strong>{pageIndex + 1}</strong> / {pageOptions.length}
                 </span>
-                    <button onClick={() => nextPage()} disabled={!canNextPage}>
+                    <button className={canNextPage ? "hover:text-black dark:hover:text-white" : ""} onClick={() => nextPage()} disabled={!canNextPage}>
                         <ChevronRight />
                     </button>
-                    <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                    <button className={canNextPage ? "hover:text-black dark:hover:text-white" : ""} onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
                         <ChevronsRight />
                     </button>
                     <PageCountDropBox pageSize={pageSize} setPageSize={setPageSize} />
