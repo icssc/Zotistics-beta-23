@@ -1,7 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
-
 export type Queries = Map<any, Query>;
 export type QueryStates = Map<any, QueryState>;
+
+export interface FilteredData {
+  year: string,
+  quarter: string,
+  department: string,
+  number: string,
+  title: string,
+  instructor: string,
+  code: number,
+  average_gpa: string
+}
 
 export interface Query {
   instructors: Option[];
