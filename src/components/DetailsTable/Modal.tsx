@@ -12,8 +12,8 @@ interface TableProps {
 }
 
 export function exactTerm(quarter:string, year:string){
-    let yearSplit = year.split('-');
-    let quarterUpper = quarter.toUpperCase()
+    const yearSplit = year.split('-');
+    const quarterUpper = quarter.toUpperCase()
     let exactYear;
     if(quarterUpper === 'SUMMER' || quarterUpper === 'FALL'){
         exactYear = yearSplit[0]
