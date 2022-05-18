@@ -13,7 +13,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="fixed z-50 w-full h-16 text-sm font-light dark:border-b bg-white drop-shadow text-neutral-500 dark:border-neutral-800 dark:bg-black dark:text-neutral-200">
+      <nav className="fixed z-40 w-full h-16 text-sm font-light dark:border-b bg-white drop-shadow text-neutral-500 dark:border-neutral-800 dark:bg-black dark:text-neutral-200">
         {/* Minimum No Breakpoint */}
         <div className="grid grid-cols-3 md:hidden content">
           <div className="grid justify-self-start items-center">
