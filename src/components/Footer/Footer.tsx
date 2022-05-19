@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Heart, Sun } from "react-feather";
+import { Sun } from "react-feather";
 
 import poweredByVercel from "./poweredByVercel.svg";
 
@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="z-50 flex items-center justify-between w-full h-16 text-sm dark:text-neutral-200 content">
       <span>
-        Made with <Heart className="inline" fill="currentColor" size={16} /> by{" "}
+        Maintained by{" "}
         <a href="https://icssc.club/?utm_source=[zotistics]">ICSSC</a> in{" "}
         <Sun className="inline" fill="currentColor" size={16} /> Irvine,
         California
