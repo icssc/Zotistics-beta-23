@@ -117,11 +117,7 @@ const chartColorsMultipleLight = [
   "rgba(199, 249, 204, 0.7)",
 ];
 
-interface GraphProps {
-  showRaw: boolean
-}
-
-const Graph = ({showRaw}: GraphProps) => {
+const Graph = () => {
   const { queries, updateQueryState } = useContext(QueriesContext);
 
   const [queryIdsValue, setQueryIdsValue] = useState<string[]>([]);
@@ -220,27 +216,36 @@ const Graph = ({showRaw}: GraphProps) => {
 
   return (
     <DynamicComponent
-      data={showRaw ? gradeValuesRaw : gradeValues}
+      data={gradeValues}
       keys={queryIdsValue}
       groupMode="grouped"
       margin={{
         top: 0,
         bottom: 20,
-        left: 65,
-        right: 65,
+        left: 50,
+        right: 50,
       }}
       axisLeft={{
-        legend: `${showRaw ? '#' : '%'} of Students`,
+        legend: "% of Students",
         legendPosition: "middle",
-        legendOffset: -55,
+        legendOffset: -40,
       }}
-      valueFormat={showRaw ? "" : ">-.2%"}
+      valueFormat=">-.2%"
       colors={barColors()}
       colorBy={queries.size === 1 ? "indexValue" : "id"}
       padding={0.25}
       innerPadding={6}
       borderRadius={4}
-      tooltipLabel={(data) => `${data.indexValue}`}
+      tooltip={({id, value, index, indexValue, color}) => (
+          <div className="flex flex-row items-center shadow rounded-sm p-1.5 text-xs text-black bg-neutral-50 dark:text-white dark:bg-neutral-900">
+            <div
+                className="h-[11px] w-[11px] mr-1"
+                style={{ backgroundColor: color }}
+            />
+            <span className="pr-1">{indexValue}:</span>
+            <span><strong>{(value*100).toFixed(2)}% | {gradeValuesRaw[index][id]}</strong></span>
+        </div>
+      )}
       {...props}
     />
   );
