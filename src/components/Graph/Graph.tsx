@@ -237,14 +237,18 @@ const Graph = () => {
       innerPadding={6}
       borderRadius={4}
       tooltip={({id, value, index, indexValue, color}) => (
-          <div className="flex flex-row items-center shadow rounded-sm p-1.5 text-xs text-black bg-neutral-50 dark:text-white dark:bg-neutral-900">
-            <div
-                className="h-[11px] w-[11px] mr-1"
-                style={{ backgroundColor: color }}
-            />
-            <span className="pr-1">{indexValue}:</span>
-            <span><strong>{(value*100).toFixed(2)}% | {gradeValuesRaw[index][id]}</strong></span>
-        </div>
+          <div className="flex flex-col items-center shadow rounded-sm p-1.5 text-xs text-black bg-neutral-50 dark:text-white dark:bg-neutral-900">
+            <div className="flex flex-row items-center">
+              <div
+                  className="h-[11px] w-[11px] mr-1"
+                  style={{ backgroundColor: color }}
+              />
+              <span className="pr-1"><strong>{indexValue}</strong></span>
+            </div>
+            <div className="border-b-[1px] w-full mb-0.5" />
+            <span>{(value*100).toFixed(2)}%</span>
+            <span>{gradeValuesRaw[index][id]} Students</span>
+          </div>
       )}
       {...props}
     />
