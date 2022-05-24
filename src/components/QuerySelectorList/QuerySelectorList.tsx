@@ -19,7 +19,7 @@ const QuerySelectorList = () => {
   const MAX_QUERIES = 5;
 
   return (
-    <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-3">
+    <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-2">
       {Array.from(queries.entries()).map(([key], index) => (
         <QuerySelector
           key={key}

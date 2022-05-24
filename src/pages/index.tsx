@@ -18,6 +18,7 @@ const Home: NextPage = () => {
               departments: [],
               courseCode: [],
               classCode: [],
+              division: ""
             },
           ],
         ])

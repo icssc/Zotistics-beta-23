@@ -18,6 +18,7 @@ const defaultQueries: Queries = new Map([
       departments: [],
       courseCode: [],
       classCode: [],
+      division: ""
     },
   ],
 ]);
@@ -34,7 +35,7 @@ const defaultStates: QueryStates = new Map([
 export const QueriesContext = createContext({
   queries: defaultQueries,
   states: defaultStates,
-  updateQuery: (queryId: any, inputField: QueryInput, value: Option[]) => {},
+  updateQuery: (queryId: any, inputField: QueryInput, value: Option[] | string) => {},
   updateQueryState: (
     queryId: any,
     inputField: QueryStateInput,

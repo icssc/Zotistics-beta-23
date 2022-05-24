@@ -33,6 +33,7 @@ const GET_GRADES = gql`
     $department: String!
     $number: String!
     $code: String!
+    $division: String!
   ) {
     grades(
       year: $year
@@ -41,6 +42,7 @@ const GET_GRADES = gql`
       department: $department
       number: $number
       code: $code
+      division: $division
     ) {
       aggregate {
         sum_grade_a_count
@@ -133,6 +135,8 @@ const Graph = () => {
   }, [queries]);
 
   useEffect(() => {
+    console.log('QUERIES')
+    console.log(queries)
     const graphQueries: Promise<ApolloQueryResult<Query>>[] = [];
     queries.forEach(async (query, key) => {
       updateQueryState(key, "loading", true);
@@ -147,9 +151,11 @@ const Graph = () => {
               department: query.departments.map(({ value }) => value).join(";"),
               number: query.courseCode.map(({ value }) => value).join(";"),
               code: query.classCode.map(({ value }) => value).join(";"),
+              division: query.division
             },
           })
           .then((query) => {
+            console.log(query)
             updateQueryState(key, "loading", false);
             return query;
           })
