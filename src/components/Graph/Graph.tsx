@@ -135,8 +135,6 @@ const Graph = () => {
   }, [queries]);
 
   useEffect(() => {
-    console.log('QUERIES')
-    console.log(queries)
     const graphQueries: Promise<ApolloQueryResult<Query>>[] = [];
     queries.forEach(async (query, key) => {
       updateQueryState(key, "loading", true);
@@ -155,7 +153,6 @@ const Graph = () => {
             },
           })
           .then((query) => {
-            console.log(query)
             updateQueryState(key, "loading", false);
             return query;
           })
