@@ -56,3 +56,5 @@ The data displayed on Zotistics is retrieved from the [PeterPortal API](https://
 ## Terms & Conditions
 
 📜 There are no hard policies at the moment for utilizing this tool. However, please refrain from abusing the Website by methods such as: sending excessive amount of requests in a small period of time or purposely looking to exploit the system. This tool is here mainly to assist developers in bringing their idea to life to benefit all UCI students. Please don't ruin it for others! 🙂
+
+[![Powered by Vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=zotistics&utm_campaign=oss)
