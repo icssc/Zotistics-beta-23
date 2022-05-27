@@ -31,7 +31,7 @@ const Query = ({ name, queryId, color }: QueryProps) => {
         </div>
         <div className="flex">
           <button
-            onClick={() => {
+            onClick={(e) => {
               // Prevent click event from bubbling to parent div. This is sort of a hacky solution, but it should work until we redesign the tabs.
               e.stopPropagation();
               removeQuery(queryId);
