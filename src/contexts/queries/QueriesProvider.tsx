@@ -66,19 +66,20 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
   const removeQuery = (queryId: any) => {
     let newQueries = new Map(queries);
     newQueries.delete(queryId);
-    newQueries = new Map([
-      [
-        new Date().getTime(),
-        {
-          instructors: [],
-          quarters: [],
-          years: [],
-          departments: [],
-          courseCode: [],
-          classCode: [],
-        },
-      ],
-    ]);
+    if (newQueries.size === 0)
+      newQueries = new Map([
+        [
+          new Date().getTime(),
+          {
+            instructors: [],
+            quarters: [],
+            years: [],
+            departments: [],
+            courseCode: [],
+            classCode: [],
+          },
+        ],
+      ]);
     const lastQueryId = Array.from(newQueries.keys()).pop();
     setQueries(newQueries);
     setSelectedQuery(lastQueryId);
