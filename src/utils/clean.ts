@@ -81,18 +81,7 @@ const condenseText = (
     text = `${instructor_clean} ${department} ${classNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
   }
 
-  text = text.trim();
-
-  // Adds empty space to the start and end of the string
-  // Bootleg way of not having to deal with css/tailwind
-  if (text.length < MAX_LENGTH) {
-    const remaining = MAX_LENGTH - text.length;
-    const half = Math.floor(remaining / 2);
-    const emptyStr = "\xa0".repeat(half);
-    text = emptyStr.concat(text.concat(emptyStr));
-  }
-
-  return text;
+  return text.trim();
 };
 
 export const querySelectorText = (query: Query | undefined) => {
