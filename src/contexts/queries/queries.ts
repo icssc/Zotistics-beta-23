@@ -10,7 +10,7 @@ import {
 
 const defaultQueries: Queries = new Map([
   [
-    new Date(),
+    new Date().getTime(),
     {
       instructors: [],
       quarters: [],
@@ -24,7 +24,7 @@ const defaultQueries: Queries = new Map([
 
 const defaultStates: QueryStates = new Map([
   [
-    new Date(),
+    new Date().getTime(),
     {
       loading: false,
     },
