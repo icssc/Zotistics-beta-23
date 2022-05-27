@@ -117,7 +117,7 @@ const chartColorsMultipleLight = [
 const Graph = () => {
   const { queries, updateQueryState } = useContext(QueriesContext);
 
-  const [queryIdsValue, setQueryIdsValue] = useState<string[]>([]);
+  const [queryIdsValue, setQueryIdsValue] = useState<number[]>([]);
   const [gradeValues, setGradeValues] = useState<gradeValue[]>([]);
 
   const { colorScheme } = useContext(ColorSchemeContext);
@@ -125,7 +125,7 @@ const Graph = () => {
   const props = colorScheme === "dark" ? optionsDark : optionsLight;
 
   useEffect(() => {
-    const queryIds: string[] = [];
+    const queryIds: number[] = [];
     queries.forEach((_value, key) => {
       queryIds.push(key);
     });
@@ -210,7 +210,7 @@ const Graph = () => {
   return (
     <DynamicComponent
       data={gradeValues}
-      keys={queryIdsValue}
+      keys={queryIdsValue.map((id) => id.toString())}
       groupMode="grouped"
       margin={{
         top: 0,
