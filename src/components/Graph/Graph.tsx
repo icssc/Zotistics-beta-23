@@ -210,7 +210,7 @@ const Graph = () => {
   return (
     <DynamicComponent
       data={gradeValues}
-      keys={queryIdsValue}
+      keys={queryIdsValue.map((id) => id.toString())}
       groupMode="grouped"
       margin={{
         top: 0,
