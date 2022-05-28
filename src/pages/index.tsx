@@ -16,8 +16,8 @@ const Home: NextPage = () => {
               quarters: [],
               years: [],
               departments: [],
+              courseNumber: [],
               courseCode: [],
-              classCode: [],
             },
           ],
         ])

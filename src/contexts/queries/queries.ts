@@ -16,8 +16,8 @@ const defaultQueries: Queries = new Map([
       quarters: [],
       years: [],
       departments: [],
+      courseNumber: [],
       courseCode: [],
-      classCode: [],
     },
   ],
 ]);

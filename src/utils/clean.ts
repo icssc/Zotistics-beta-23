@@ -36,18 +36,18 @@ const condenseText = (
   year: string,
   department: string,
   classNumber: string,
-  classCode: string
+  courseCode: string
 ) => {
   let quarter_clean = quarter;
   if (
-    (instructor || year || department || classNumber || classCode) &&
+    (instructor || year || department || classNumber || courseCode) &&
     quarter == "All"
   ) {
     quarter_clean = "";
   }
 
-  if (classCode) {
-    return `${classCode} ${quarter_clean} ${year}`.trim();
+  if (courseCode) {
+    return `${courseCode} ${quarter_clean} ${year}`.trim();
   }
 
   const MAX_LENGTH = 20;
@@ -95,7 +95,7 @@ export const querySelectorText = (query: Query | undefined) => {
   let instructor = "";
   let department = "";
   let classNumber = "";
-  let classCode = "";
+  let courseCode = "";
 
   if (query.instructors.length == 1) {
     instructor = query.instructors[0].value;
@@ -103,11 +103,11 @@ export const querySelectorText = (query: Query | undefined) => {
   if (query.departments.length == 1) {
     department = query.departments[0].value;
   }
-  if (query.courseCode.length == 1) {
-    classNumber = query.courseCode[0].value;
+  if (query.courseNumber.length == 1) {
+    classNumber = query.courseNumber[0].value;
   }
-  if (query.classCode.length == 1) {
-    classCode = query.classCode[0].value;
+  if (query.courseCode.length == 1) {
+    courseCode = query.courseCode[0].value;
   }
 
   return condenseText(
@@ -116,6 +116,6 @@ export const querySelectorText = (query: Query | undefined) => {
     year,
     department,
     classNumber,
-    classCode
+    courseCode
   );
 };

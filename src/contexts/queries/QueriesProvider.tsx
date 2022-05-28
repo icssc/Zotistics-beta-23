@@ -56,8 +56,8 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
       quarters: [],
       years: [],
       departments: [],
+      courseNumber: [],
       courseCode: [],
-      classCode: [],
     });
     setQueries(newQueries);
     setSelectedQuery(queryId);
@@ -75,8 +75,8 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
             quarters: [],
             years: [],
             departments: [],
+            courseNumber: [],
             courseCode: [],
-            classCode: [],
           },
         ],
       ]);
