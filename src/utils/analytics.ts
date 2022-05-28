@@ -25,8 +25,19 @@ const analytics = {
     data: {
         category: "Data",
         actions: {
-            COMPARE_BUTTON: 'Clicks Compare'
+            COMPARE_BUTTON: 'Click Compare'
         }
     }
+}
+export default analytics
 
+interface LogType {
+    category: string,
+    action: string,
+    label?: string,
+    value?: number
+}
+
+export const logAnalytics = ({ category, action, label, value }: LogType) => {
+    ReactGA4.event({category, action, label, value});
 }
