@@ -8,8 +8,8 @@ export interface Query {
   quarters: Option[];
   years: Option[];
   departments: Option[];
+  courseNumber: Option[];
   courseCode: Option[];
-  classCode: Option[];
 }
 
 export interface Option {
