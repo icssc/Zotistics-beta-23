@@ -41,7 +41,7 @@ const Form = () => {
         formType={FormSelectType.NORMAL}
       />
       <SelectDropdown
-        id="course-code"
+        id="course-number"
         label="Course Number"
         // endpoint={"/api/departments"}
         value={queries.get(selectedQuery)?.courseNumber ?? []}
@@ -49,7 +49,7 @@ const Form = () => {
         formType={FormSelectType.CREATABLE}
       />
       <SelectDropdown
-        id="class-code"
+        id="course-code"
         label="Course Code"
         // endpoint={"/api/departments"}
         value={queries.get(selectedQuery)?.courseCode ?? []}

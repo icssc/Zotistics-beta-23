@@ -35,12 +35,12 @@ const condenseText = (
   quarter: string,
   year: string,
   department: string,
-  classNumber: string,
+  courseNumber: string,
   courseCode: string
 ) => {
   let quarter_clean = quarter;
   if (
-    (instructor || year || department || classNumber || courseCode) &&
+    (instructor || year || department || courseNumber || courseCode) &&
     quarter == "All"
   ) {
     quarter_clean = "";
@@ -52,23 +52,23 @@ const condenseText = (
 
   const MAX_LENGTH = 20;
   const instructor_last_name = instructor.split(",")[0];
-  let text = `${instructor} ${department} ${classNumber} ${quarter_clean} ${year}`.trim();
+  let text = `${instructor} ${department} ${courseNumber} ${quarter_clean} ${year}`.trim();
 
   if (text.length > MAX_LENGTH) {
     // prettier-ignore
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year}`;
+    text = `${instructor_last_name} ${department} ${courseNumber} ${quarter_clean} ${year}`;
   }
   if (text.length > MAX_LENGTH) {
     // prettier-ignore
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(-2)}`;
+    text = `${instructor_last_name} ${department} ${courseNumber} ${quarter_clean} ${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
     // prettier-ignore
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean} ${year.slice(-2)}`;
+    text = `${instructor_last_name} ${department} ${courseNumber} ${quarter_clean} ${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
     // prettier-ignore
-    text = `${instructor_last_name} ${department} ${classNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
+    text = `${instructor_last_name} ${department} ${courseNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
   }
   if (text.length > MAX_LENGTH) {
     const difference = text.length - MAX_LENGTH;
@@ -78,7 +78,7 @@ const condenseText = (
     if (instructor_clean.length > difference + 3 && difference > 2) {
       instructor_clean = instructor_clean.slice(0, -difference);
     }
-    text = `${instructor_clean} ${department} ${classNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
+    text = `${instructor_clean} ${department} ${courseNumber} ${quarter_clean.charAt(0)}${year.slice(-2)}`;
   }
 
   return text.trim();
@@ -94,7 +94,7 @@ export const querySelectorText = (query: Query | undefined) => {
   const year = quarterYear.year || "";
   let instructor = "";
   let department = "";
-  let classNumber = "";
+  let courseNumber = "";
   let courseCode = "";
 
   if (query.instructors.length == 1) {
@@ -104,7 +104,7 @@ export const querySelectorText = (query: Query | undefined) => {
     department = query.departments[0].value;
   }
   if (query.courseNumber.length == 1) {
-    classNumber = query.courseNumber[0].value;
+    courseNumber = query.courseNumber[0].value;
   }
   if (query.courseCode.length == 1) {
     courseCode = query.courseCode[0].value;
@@ -115,7 +115,7 @@ export const querySelectorText = (query: Query | undefined) => {
     quarter,
     year,
     department,
-    classNumber,
+    courseNumber,
     courseCode
   );
 };
