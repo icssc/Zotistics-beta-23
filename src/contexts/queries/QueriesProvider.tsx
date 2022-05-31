@@ -79,6 +79,7 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
             departments: [],
             courseNumber: [],
             courseCode: [],
+            division: ""
           },
         ],
       ]);
