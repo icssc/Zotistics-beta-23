@@ -19,7 +19,7 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
   const [queries, setQueries] = useState<Queries>(new Map(initialQueries));
   const [states, setStates] = useState<QueryStates>(new Map());
   const [selectedQuery, setSelectedQuery] = useState(
-    initialQueries.keys().next().value
+    Array.from(initialQueries.keys()).shift()
   );
 
   const updateQuery = (
@@ -49,22 +49,40 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
   };
 
   const addQuery = () => {
+    const queryId = new Date().getTime();
     const newQueries = new Map(queries);
-    newQueries.set(new Date(), {
+    newQueries.set(queryId, {
       instructors: [],
       quarters: [],
       years: [],
       departments: [],
+      courseNumber: [],
       courseCode: [],
-      classCode: [],
     });
     setQueries(newQueries);
+    setSelectedQuery(queryId);
   };
 
   const removeQuery = (queryId: any) => {
-    const newQueries = new Map(queries);
+    let newQueries = new Map(queries);
     newQueries.delete(queryId);
+    if (newQueries.size === 0)
+      newQueries = new Map([
+        [
+          new Date().getTime(),
+          {
+            instructors: [],
+            quarters: [],
+            years: [],
+            departments: [],
+            courseNumber: [],
+            courseCode: [],
+          },
+        ],
+      ]);
+    const lastQueryId = Array.from(newQueries.keys()).pop();
     setQueries(newQueries);
+    setSelectedQuery(lastQueryId);
   };
 
   return (

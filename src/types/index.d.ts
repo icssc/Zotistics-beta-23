@@ -1,5 +1,5 @@
-export type Queries = Map<any, Query>;
-export type QueryStates = Map<any, QueryState>;
+export type Queries = Map<number, Query>;
+export type QueryStates = Map<number, QueryState>;
 
 export interface FilteredData {
   year: string,
@@ -17,8 +17,8 @@ export interface Query {
   quarters: Option[];
   years: Option[];
   departments: Option[];
+  courseNumber: Option[];
   courseCode: Option[];
-  classCode: Option[];
 }
 
 export interface Option {
