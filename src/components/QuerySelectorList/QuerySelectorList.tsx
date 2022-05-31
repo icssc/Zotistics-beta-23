@@ -16,10 +16,10 @@ const chartColorsMultiple = [
 
 const QuerySelectorList = () => {
   const { queries, addQuery } = useContext(QueriesContext);
-  const MAX_QUERIES = 5;
+  const MAX_QUERIES = 4;
 
   return (
-    <menu className="grid grid-flow-col auto-cols-max gap-2 items-center mt-2">
+    <menu className="flex flex-row gap-2 items-center mt-3">
       {Array.from(queries.entries()).map(([key], index) => (
         <QuerySelector
           key={key}

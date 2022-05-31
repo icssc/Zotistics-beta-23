@@ -10,14 +10,14 @@ const Home: NextPage = () => {
       initialQueries={
         new Map([
           [
-            new Date(),
+            new Date().getTime(),
             {
               instructors: [],
               quarters: [],
               years: [],
               departments: [],
+              courseNumber: [],
               courseCode: [],
-              classCode: [],
               division: ""
             },
           ],
