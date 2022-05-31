@@ -40,7 +40,7 @@ function Modal({isOpen, setIsOpen, queryID}: TableProps) {
                 instructor: query.instructors.map(({ value }) => value).join(";"),
                 department: query.departments.map(({ value }) => value).join(";"),
                 number: query.courseCode.map(({ value }) => value).join(";"),
-                code: query.classCode.map(({ value }) => value).join(";")
+                code: query.courseCode.map(({ value }) => value).join(";")
             }
 
             const queryParams = new URLSearchParams(params)

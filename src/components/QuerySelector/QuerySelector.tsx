@@ -34,19 +34,16 @@ const Query = ({ name, queryId, color }: QueryProps) => {
         </div>
         <div className="flex items-center rounded-md divide-x-2 divide-neutral-400 dark:divide-neutral-600 border-2 border-neutral-400 dark:border-neutral-600">
           <button
-            onClick={(e) => {
-              setIsModalOpen(true)
-              // Prevent click event from bubbling to parent div. This is sort of a hacky solution, but it should work until we redesign the tabs.
-              e.stopPropagation();
-              removeQuery(queryId);
-            }}
+            onClick={() => setIsModalOpen(true)}
             className="px-[3px] py-[3px] hover:text-neutral-600 dark:hover:text-black"
           >
               <Info size={18} strokeWidth={1.5} />
           </button>
           <button
-                onClick={() => {
-                    removeQuery(queryId);
+                onClick={(e) => {
+                  // Prevent click event from bubbling to parent div. This is sort of a hacky solution, but it should work until we redesign the tabs.
+                  e.stopPropagation();
+                  removeQuery(queryId);
                 }}
                 className="px-[3px] py-[3px] hover:text-red-600"
           >
