@@ -11,7 +11,8 @@ const ColorSchemeToggle = () => {
     toggleColorScheme()
     logAnalytics({
       category: analytics.nav.category,
-      action: analytics.nav.actions.THEME
+      action: analytics.nav.actions.THEME,
+      label: colorScheme === "dark" ? "light" : "dark"
     })
   }
 
