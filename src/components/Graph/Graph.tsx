@@ -120,7 +120,7 @@ const chartColorsMultipleLight = [
 const Graph = () => {
   const { queries, updateQueryState } = useContext(QueriesContext);
 
-  const [queryIdsValue, setQueryIdsValue] = useState<string[]>([]);
+  const [queryIdsValue, setQueryIdsValue] = useState<number[]>([]);
   const [gradeValues, setGradeValues] = useState<gradeValue[]>([]);
   const [gradeValuesRaw, setGradeValuesRaw] = useState<gradeValue[]>([]);
 
@@ -129,7 +129,7 @@ const Graph = () => {
   const props = colorScheme === "dark" ? optionsDark : optionsLight;
 
   useEffect(() => {
-    const queryIds: string[] = [];
+    const queryIds: number[] = [];
     queries.forEach((_value, key) => {
       queryIds.push(key);
     });
@@ -149,8 +149,8 @@ const Graph = () => {
               quarter: query.quarters.map(({ value }) => value).join(";"),
               instructor: query.instructors.map(({ value }) => value).join(";"),
               department: query.departments.map(({ value }) => value).join(";"),
-              number: query.courseCode.map(({ value }) => value).join(";"),
-              code: query.classCode.map(({ value }) => value).join(";"),
+              number: query.courseNumber.map(({ value }) => value).join(";"),
+              code: query.courseCode.map(({ value }) => value).join(";"),
             },
           })
           .then((query) => {
@@ -217,7 +217,7 @@ const Graph = () => {
   return (
     <DynamicComponent
       data={gradeValues}
-      keys={queryIdsValue}
+      keys={queryIdsValue.map((id) => id.toString())}
       groupMode="grouped"
       margin={{
         top: 0,

@@ -10,21 +10,21 @@ import {
 
 const defaultQueries: Queries = new Map([
   [
-    new Date(),
+    new Date().getTime(),
     {
       instructors: [],
       quarters: [],
       years: [],
       departments: [],
+      courseNumber: [],
       courseCode: [],
-      classCode: [],
     },
   ],
 ]);
 
 const defaultStates: QueryStates = new Map([
   [
-    new Date(),
+    new Date().getTime(),
     {
       loading: false,
     },

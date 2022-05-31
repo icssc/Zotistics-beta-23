@@ -41,19 +41,19 @@ const Form = () => {
         formType={FormSelectType.NORMAL}
       />
       <SelectDropdown
+        id="course-number"
+        label="Course Number"
+        // endpoint={"/api/departments"}
+        value={queries.get(selectedQuery)?.courseNumber ?? []}
+        setValue={(value) => updateQuery(selectedQuery, "courseNumber", value)}
+        formType={FormSelectType.CREATABLE}
+      />
+      <SelectDropdown
         id="course-code"
         label="Course Code"
         // endpoint={"/api/departments"}
         value={queries.get(selectedQuery)?.courseCode ?? []}
         setValue={(value) => updateQuery(selectedQuery, "courseCode", value)}
-        formType={FormSelectType.CREATABLE}
-      />
-      <SelectDropdown
-        id="class-code"
-        label="Class Code"
-        // endpoint={"/api/departments"}
-        value={queries.get(selectedQuery)?.classCode ?? []}
-        setValue={(value) => updateQuery(selectedQuery, "classCode", value)}
         formType={FormSelectType.CREATABLE}
       />
     </div>
