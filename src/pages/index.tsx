@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         ])
       }
     >
-      <main className="mt-1 content">
+      <main className="content">
         <Form />
         <QuerySelectorList />
         <div className="mt-7 h-96">
