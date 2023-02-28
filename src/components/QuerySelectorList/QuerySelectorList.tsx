@@ -5,6 +5,7 @@ import QuerySelector from "src/components/QuerySelector/QuerySelector";
 import { PlusCircle } from "react-feather";
 
 import { QueriesContext } from "src/contexts/queries/queries";
+import analytics, {logAnalytics} from "../../utils/analytics";
 
 const chartColorsMultiple = [
   "#22577A",
@@ -18,6 +19,14 @@ const QuerySelectorList = () => {
   const { queries, addQuery } = useContext(QueriesContext);
   const MAX_QUERIES = 4;
 
+  const handleAddQuery = () => {
+    addQuery()
+    logAnalytics({
+      category: analytics.data.category,
+      action: analytics.data.actions.COMPARE_BUTTON
+    })
+  }
+
   return (
     <menu className="flex flex-row gap-2 items-center mt-3">
       {Array.from(queries.entries()).map(([key], index) => (
@@ -29,7 +38,7 @@ const QuerySelectorList = () => {
         />
       ))}
       {queries.size < MAX_QUERIES && (
-        <button className="dark:text-white" onClick={addQuery}>
+        <button className="dark:text-white" onClick={handleAddQuery}>
           <PlusCircle size={24} strokeWidth={1.5} />
         </button>
       )}

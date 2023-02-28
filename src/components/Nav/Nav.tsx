@@ -7,6 +7,7 @@ import Logo from "./Logo";
 
 import MobileNavMenu from "./MobileNavMenu";
 import ColorSchemeToggle from "src/components/ColorSchemeToggle/ColorSchemeToggle";
+import analytics, { logAnalytics } from "../../utils/analytics";
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -55,23 +56,44 @@ const Nav = () => {
         {/* Minimum Medium Breakpoint */}
         <div className="hidden grid-cols-3 md:grid content">
           <Link href="https://old.zotistics.com">
-            <a className="grid grid-flow-col gap-2 justify-self-start items-center">
+            <a className="grid grid-flow-col gap-2 justify-self-start items-center"
+               onClick={() => {logAnalytics({
+                 category: analytics.nav.category,
+                 action: analytics.nav.actions.OLD_ZOTISTICS_LINK
+               })}}
+            >
               <CornerUpLeft size={24} strokeWidth={1.5} />
               old.zotistics.com
             </a>
           </Link>
 
           <Link href="/">
-            <a aria-label="Home" className="w-8 h-8 justify-self-center">
+            <a aria-label="Home" className="w-8 h-8 justify-self-center"
+               onClick={() => {logAnalytics({
+                 category: analytics.nav.category,
+                 action: analytics.nav.actions.HOME_LOGO
+               })}}
+            >
               <Logo />
             </a>
           </Link>
 
           <div className="grid grid-flow-col gap-4 justify-self-end items-center">
             <Link href="/posts/faq">
-              <a>FAQ</a>
+              <a onClick={() => {logAnalytics({
+                  category: analytics.nav.category,
+                  action: analytics.nav.actions.FAQ
+                })}}
+              >
+                FAQ
+              </a>
             </Link>
-            <a href="https://forms.gle/FEH4CC3LLw8ETmn78" target="_blank">
+            <a href="https://forms.gle/FEH4CC3LLw8ETmn78" target="_blank"
+               onClick={() => {logAnalytics({
+                 category: analytics.nav.category,
+                 action: analytics.nav.actions.FEEDBACK
+               })}}
+            >
               Feedback
             </a>
             <div className="ml-2">
