@@ -12,10 +12,6 @@ Zotistics is UCI's premier grade distribution analysis tool! We use the PeterPor
 - [MDX](https://mdxjs.com/) & [gray-matter](https://github.com/jonschlinkert/gray-matter)
 - [Doggles](https://github.com/icssc-projects/Zotistics/blob/main/src/assets/doggles.png)
 
-## Our Mission
-
-🎇 Our mission is to improve the UCI student experience with course planning and encourage student software developers to create open-source applications that are beneficial to the Anteater community.
-
 ## Documentation
 
 ### Setting up your development environment
@@ -30,13 +26,13 @@ $ git clone https://github.com/icssc-projects/Zotistics.git
 
 ```console
 $ cd Zotistics
-$ npm install
+$ pnpm install
 ```
 
 3. Start the development server.
 
 ```console
-$ npm run dev
+$ pnpm dev
 ```
 
 4. Zotistics should load locally at http://localhost:3000/
@@ -52,9 +48,5 @@ The data displayed on Zotistics is retrieved from the [PeterPortal API](https://
 ## Other Disclaimer
 
 ✅ Although PeterPortal API data is consolidated directly from official UCI sources, this application is by all means, not an official UCI tool. We stride to keep our data as accurate as possible with the limited support we have from UCI. Please take that into consideration while using this website.
-
-## Terms & Conditions
-
-📜 There are no hard policies at the moment for utilizing this tool. However, please refrain from abusing the Website by methods such as: sending excessive amount of requests in a small period of time or purposely looking to exploit the system. This tool is here mainly to assist developers in bringing their idea to life to benefit all UCI students. Please don't ruin it for others! 🙂
 
 [![Powered by Vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=icssc&utm_campaign=oss)
