@@ -26,7 +26,12 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self' 'unsafe-eval'; connect-src 'self' api.peterportal.org vitals.vercel-insights.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data:;",
+      "default-src 'self' 'unsafe-eval'; " +
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com ; " +
+      "connect-src 'self' api.peterportal.org vitals.vercel-insights.com *.google-analytics.com *.analytics.google.com *.googletagmanager.com; " +
+      "style-src 'self' 'unsafe-inline' fonts.googleapis.com; " +
+      "font-src fonts.gstatic.com; " +
+      "img-src 'self' *.google-analytics.com *.googletagmanager.com data:;",
   },
 ];
 
