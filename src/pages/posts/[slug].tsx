@@ -33,8 +33,8 @@ const components = {
   h4: (props: ComponentProps) => <h5 {...props} className="mt-3 font-medium" />,
   h5: (props: ComponentProps) => <h6 {...props} className="mt-2 font-medium" />,
   a: (props: AnchorProps) => (
-    <Link href={props.href}>
-      <a className="underline">{props.children}</a>
+    <Link href={props.href} className="underline">
+      {props.children}
     </Link>
   ),
 };

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .content {
+    @apply w-full max-w-6xl p-4 m-auto;
+  }
+
+  .input {
+    @apply w-full p-2 text-white bg-white rounded ring-1 ring-offset-0 ring-neutral-400 outline-offset-0 dark:ring-neutral-600 dark:bg-neutral-900 focus:outline-2 focus:outline-blue-500;
+  }
+}
