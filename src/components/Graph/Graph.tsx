@@ -33,6 +33,7 @@ const GET_GRADES = gql`
     $department: String!
     $number: String!
     $code: String!
+    $division: String!
   ) {
     grades(
       year: $year
@@ -41,6 +42,7 @@ const GET_GRADES = gql`
       department: $department
       number: $number
       code: $code
+      division: $division
     ) {
       aggregate {
         sum_grade_a_count
@@ -147,6 +149,7 @@ const Graph = () => {
               department: query.departments.map(({ value }) => value).join(";"),
               number: query.courseNumber.map(({ value }) => value).join(";"),
               code: query.courseCode.map(({ value }) => value).join(";"),
+              division: query.division
             },
           })
           .then((query) => {

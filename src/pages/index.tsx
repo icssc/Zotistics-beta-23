@@ -22,6 +22,7 @@ const Home: NextPage = () => {
               departments: [],
               courseNumber: [],
               courseCode: [],
+              division: ""
             },
           ],
         ])

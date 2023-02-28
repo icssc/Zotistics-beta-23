@@ -25,11 +25,12 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
   const updateQuery = (
     queryId: any,
     inputField: QueryInput,
-    value: Option[]
+    value: Option[] | string
   ) => {
     const newQueries = new Map(queries);
     const query = newQueries.get(queryId);
     if (query) {
+      // @ts-ignore
       query[inputField] = value;
       newQueries.set(queryId, query);
       setQueries(newQueries);
@@ -58,6 +59,7 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
       departments: [],
       courseNumber: [],
       courseCode: [],
+      division: ""
     });
     setQueries(newQueries);
     setSelectedQuery(queryId);
@@ -77,6 +79,7 @@ function QueriesProvider({ children, initialQueries }: QueriesProviderProps) {
             departments: [],
             courseNumber: [],
             courseCode: [],
+            division: ""
           },
         ],
       ]);

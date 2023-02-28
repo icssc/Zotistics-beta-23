@@ -10,6 +10,7 @@ export interface Query {
   departments: Option[];
   courseNumber: Option[];
   courseCode: Option[];
+  division: string;
 }
 
 export interface Option {
